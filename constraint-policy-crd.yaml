@@ -1,0 +1,51 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: k8sWhitelistedImages
+metadata:
+  name: k8senforcewhitelistedimages
+spec:
+  match:
+    kinds:
+      - apiGroups: [""]
+        kinds: ["Pod"]
+  parameters:
+    images:
+      # Images allowed to be used by the infrastructure services inside the kubernetes cluster
+      - couchdb:3.1.1
+      - docker.io/istio/operator:1.17.1
+      - docker.io/istio/operator:1.17.2
+      - docker.io/istio/pilot:1.17.1
+      - docker.io/istio/pilot:1.17.2
+      - docker.io/istio/proxyv2:1.17.1
+      - docker.io/istio/proxyv2:1.17.2
+      - gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner:v4.0.1
+      - gcr.io/kubebuilder/kube-rbac-proxy:v0.5.0
+      - grafana/grafana
+      - hyperledger/fabric-ca:1.5.6-beta2
+      - hyperledger/fabric-orderer:2.4.6
+      - hyperledger/fabric-peer:2.4.6
+      - jboss/keycloak:13.0.1
+      - k8s.gcr.io/metrics-server-amd64
+      - kubernetesui/dashboard
+      - kubernetesui/metrics-scraper
+      - openpolicyagent/gatekeeper
+      - prom/alertmanager
+      - prom/node-exporter:v1.3.1
+      - prom/prometheus
+      - quay.io/coreos/kube-state-metrics
+      - quay.io/kfsoftware/hlf-operator:v1.8.2
+      - quay.io/kubernetes-ingress-controller/nginx-ingress-controller
+      - registry.developers.crunchydata.com/crunchydata/crunchy-pgadmin4:ubi8-4.30-10
+      - registry.developers.crunchydata.com/crunchydata/crunchy-pgbackrest:ubi8-2.41-2
+      - registry.developers.crunchydata.com/crunchydata/crunchy-pgbouncer:ubi8-1.18-0
+      - registry.developers.crunchydata.com/crunchydata/crunchy-postgres:ubi8-14.6-2
+      - registry.developers.crunchydata.com/crunchydata/postgres-operator:ubi8-5.3.0-0
+      - registry.developers.crunchydata.com/crunchydata/postgres-operator-upgrade:ubi8-5.3.0-0
+      - registry.k8s.io/coredns/coredns:v1.9.3
+      - registry.k8s.io/etcd:3.5.4-0
+      - registry.k8s.io/kube-apiserver:v1.25.0
+      - registry.k8s.io/kube-controller-manager:v1.25.0
+      - registry.k8s.io/kube-proxy:v1.25.0
+      - registry.k8s.io/kube-scheduler:v1.25.0
+      - registry.k8s.io/metrics-server/metrics-server:v0.6.3
+      - weaveworks/weave-kube:latest
+      - weaveworks/weave-npc:latest
